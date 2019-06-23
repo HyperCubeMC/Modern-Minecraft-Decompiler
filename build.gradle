@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url = 'http://files.minecraftforge.net/maven' }
+        maven { url = 'http://repo.hexeption.co.uk/artifactory/list/PreMCP/'}
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.0.43'
+    }
+}
+
+apply plugin: 'eclipse'
+
+group = 'pre-mcp'
+version = '1.0.0'
+
+project(':mcp') {
+    apply plugin: 'net.minecraftforge.gradle.forgedev.mcp'
+    mcp {
+        config = 'de.oceanlabs.mcp:mcp_config:1.14.2'
+        pipeline = 'client'
+    }
+}
+
+evaluationDependsOn(':mcp')
+apply plugin: 'eclipse'
+apply plugin: 'net.minecraftforge.gradle.forgedev.patcher'
+repositories {
+    mavenCentral()
+    maven { url = 'http://repo.hexeption.co.uk/artifactory/list/Strezz-Central/'}
+}
+patcher {
+    parent = project(':mcp')
+    patchedSrc = file('src/main/java')
+    mappings channel: 'snapshot', version: '20190605-1.14.2'
+    mcVersion = '1.14.2'
+}
+task runclient(type: JavaExec) {
+    group = "MCP"
+    description = "Runs the client"
+    doFirst {
+        mkdir 'runclient'
+    }
+    classpath sourceSets.main.runtimeClasspath
+    args = ['--accessToken', '0', '--version', '1.14']
+    main 'net.minecraft.client.main.Main'
+    workingDir 'runclient'
+}
+
+task setup() {
+    group = "MCP"
+    description = "Setups the dev workspace"
+    dependsOn ':extractMapped'
+}
