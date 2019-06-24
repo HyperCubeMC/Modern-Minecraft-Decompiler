@@ -1,4 +1,4 @@
-rootProject.name = 'pre-mcp'
+rootProject.name = 'modern-mcp'
 
 include ':mcp'
 project(":mcp").projectDir = file("projects/mcp")
