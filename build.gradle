@@ -7,7 +7,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.0.43'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
     }
 }
 
@@ -17,9 +17,9 @@ group = 'modern-mcp'
 version = '1.0.0'
 
 project(':mcp') {
-    apply plugin: 'net.minecraftforge.gradle.forgedev.mcp'
+    apply plugin: 'net.minecraftforge.gradle.mcp'
     mcp {
-        config = 'de.oceanlabs.mcp:mcp_config:1.14.3'
+        config = '1.14.3' + '-' + '20190624.152911'
         pipeline = 'client'
     }
 }
