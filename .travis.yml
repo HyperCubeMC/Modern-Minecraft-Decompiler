@@ -4,15 +4,8 @@
   "notifications": {
     "email": false
   },
-  "addons": {
-    "apt": {
-      "packages": [
-        "oracle-java10-installer"
-      ]
-    }
-  },
   "jdk": [
-    "oraclejdk10"
+    "openjdk10"
   ],
   "before_install": [
     "chmod +x gradlew"
