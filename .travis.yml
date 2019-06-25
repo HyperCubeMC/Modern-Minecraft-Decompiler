@@ -4,15 +4,8 @@
   "notifications": {
     "email": false
   },
-  "addons": {
-    "apt": {
-      "packages": [
-        "oracle-java12-installer"
-      ]
-    }
-  },
   "jdk": [
-    "oraclejdk12"
+    "openjdk12"
   ],
   "before_install": [
     "chmod +x gradlew"
