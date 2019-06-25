@@ -7,12 +7,12 @@
   "addons": {
     "apt": {
       "packages": [
-        "oracle-java8-installer"
+        "oracle-java12-installer"
       ]
     }
   },
   "jdk": [
-    "oraclejdk8"
+    "oraclejdk12"
   ],
   "before_install": [
     "chmod +x gradlew"
