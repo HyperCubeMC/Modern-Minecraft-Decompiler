@@ -1,0 +1,30 @@
+{
+  "language": "java",
+  "sudo": false,
+  "notifications": {
+    "email": false
+  },
+  "addons": {
+    "apt": {
+      "packages": [
+        "oracle-java8-installer"
+      ]
+    }
+  },
+  "jdk": [
+    "oraclejdk8"
+  ],
+  "before_install": [
+    "chmod +x gradlew"
+  ],
+  "script": [
+    "./gradlew setup",
+    "./gradlew build"
+  ],
+  "env": {
+    "global": "TERM=dumb"
+  },
+  "before_cache": [
+    "rm -f $HOME/.gradle/caches/modules-2/modules-2.lock"
+  ]
+}
