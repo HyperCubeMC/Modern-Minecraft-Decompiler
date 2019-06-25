@@ -34,7 +34,7 @@ repositories {
 patcher {
     parent = project(':mcp')
     patchedSrc = file('src/main/java')
-    mappings channel: 'snapshot', version: '20190623-1.14.2'
+    mappings channel: 'snapshot', version: '20190625-1.14.3'
     mcVersion = '1.14.3'
 }
 task runclient(type: JavaExec) {
