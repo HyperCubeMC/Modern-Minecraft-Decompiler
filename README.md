@@ -11,7 +11,8 @@
 
 | Version     | Support | Mapping |
 | ---      | ---       | ---       |
-| 1.14.2 | ✔         | Snapshot/20190623-1.14.2 |
+| 1.14.3 (PRE) | ⚠         | Stable/53-1.14.2 |
+| 1.14.2 | ✔         | Stable/53-1.14.2 |
 | 1.14.1     | ✔       |  |
 | 1.14 | ✔     |  |
 | 1.13.2 | ✔   |  |
@@ -37,4 +38,4 @@
 
 #### Special thanks to: **MinecraftForge** Team who made this tool possible.
 
-### BuildStatus: [![Build Status](https://travis-ci.org/ahmed605/Modern-MCP.svg?branch=master)](https://travis-ci.org/ahmed605/Modern-MCP)
+### BuildStatus: [![Build Status](https://travis-ci.org/ahmed605/Modern-MCP.svg?branch=1.14.2)](https://travis-ci.org/ahmed605/Modern-MCP)
