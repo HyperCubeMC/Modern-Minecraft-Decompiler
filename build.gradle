@@ -26,7 +26,7 @@ project(':mcp') {
 
 evaluationDependsOn(':mcp')
 apply plugin: 'eclipse'
-apply plugin: 'net.minecraftforge.gradle.forgedev.patcher'
+apply plugin: 'net.minecraftforge.gradle.patcher'
 repositories {
     mavenCentral()
     maven { url = 'http://repo.hexeption.co.uk/artifactory/list/Strezz-Central/'}
