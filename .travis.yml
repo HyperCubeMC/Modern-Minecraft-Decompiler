@@ -12,7 +12,8 @@
   ],
   "script": [
     "./gradlew setup",
-    "./gradlew build"
+    "./gradlew build",
+    "ls -F"
   ],
   "env": {
     "global": "TERM=dumb"
