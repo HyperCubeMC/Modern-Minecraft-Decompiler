@@ -1,6 +1,8 @@
 
 ## Modern MCP
 
+![LOGO](https://raw.githubusercontent.com/ahmed605/Modern-MCP/1.14.3/LOGOS/LOGO2.png)
+
 #### Modern MCP (Gradle Based) is a beta MCP for minecraft for making modded clients for minecraft and researching it's code.
 
 #### Based on: Pre-MCP, MCPConfig and ForgeGradle by MinecraftForge Team.
@@ -33,6 +35,7 @@
 ### Creators:
 
 * Ahmed605
+* Justsnoopy30
 * Hexeption
 * kingdevnl
 
