@@ -2,7 +2,6 @@ buildscript {
     repositories {
         mavenLocal()
         maven { url = 'http://files.minecraftforge.net/maven' }
-        maven { url = 'http://repo.hexeption.co.uk/artifactory/list/PreMCP/'}
         jcenter()
         mavenCentral()
     }
@@ -19,6 +18,7 @@ version = '1.0.0'
 project(':mcp') {
     apply plugin: 'net.minecraftforge.gradle.mcp'
     mcp {
+        //Copied from MinecraftForge build.gradle
         config = '1.14.3' + '-' + '20190624.152911'
         pipeline = 'client'
     }
@@ -29,7 +29,6 @@ apply plugin: 'eclipse'
 apply plugin: 'net.minecraftforge.gradle.patcher'
 repositories {
     mavenCentral()
-    maven { url = 'http://repo.hexeption.co.uk/artifactory/list/Strezz-Central/'}
 }
 patcher {
     parent = project(':mcp')
