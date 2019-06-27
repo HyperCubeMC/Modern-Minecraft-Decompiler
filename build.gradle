@@ -28,6 +28,9 @@ evaluationDependsOn(':mcp')
 apply plugin: 'eclipse'
 apply plugin: 'net.minecraftforge.gradle.patcher'
 repositories {
+    mavenLocal()
+    maven { url = 'http://files.minecraftforge.net/maven' }
+    jcenter()
     mavenCentral()
 }
 patcher {
