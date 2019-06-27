@@ -3,7 +3,7 @@
 
 ![LOGO](https://github.com/hypercubemc-github/Modern-Minecraft-Decompiler/blob/master/LOGOS/LOGO3.png?raw=true)
 
-#### Modern Minecraft Decompiler (Gradle Based) is a small Gradle buildscript that decompiles Minecraft to make modded clients and research it's code.
+#### Modern Minecraft Decompiler (Gradle Based) is a small Gradle buildscript that decompiles Minecraft to research it's code.
 
 ### Note: This is a small Gradle buildscript uses ForgeGradle by MinecraftForge team.
 
