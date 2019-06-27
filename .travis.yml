@@ -1,0 +1,24 @@
+{
+  "language": "java",
+  "sudo": false,
+  "notifications": {
+    "email": false
+  },
+  "jdk": [
+    "openjdk10"
+  ],
+  "before_install": [
+    "chmod +x gradlew"
+  ],
+  "script": [
+    "./gradlew setup",
+    "./gradlew build",
+    "ls -F"
+  ],
+  "env": {
+    "global": "TERM=dumb"
+  },
+  "before_cache": [
+    "rm -f $HOME/.gradle/caches/modules-2/modules-2.lock"
+  ]
+}
