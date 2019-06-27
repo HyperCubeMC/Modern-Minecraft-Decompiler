@@ -21,4 +21,4 @@
 
 #### Special thanks to: **MinecraftForge** Team who made this tool possible.
 
-### BuildStatus: [![Build Status](https://travis-ci.com/hypercubemc-github/Modern-Minecraft-Decompiler.svg?branch=master)](https://travis-ci.com/hypercubemc-github/Modern-Minecraft-Decompiler)
+### BuildStatus: [![Build Status](https://travis-ci.org/hypercubemc-github/Modern-Minecraft-Decompiler.svg?branch=master)](https://travis-ci.org/hypercubemc-github/Modern-Minecraft-Decompiler)
