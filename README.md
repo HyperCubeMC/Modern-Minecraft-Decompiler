@@ -1,6 +1,8 @@
 
 ## Modern Minecraft Decompiler
 
+![LOGO](https://github.com/hypercubemc-github/Modern-Minecraft-Decompiler/blob/master/LOGOS/LOGO3.png?raw=true)
+
 #### Modern Minecraft Decompiler (Gradle Based) is a decompiler for minecraft for making modded clients for minecraft and researching it's code.
 
 #### Based on: ForgeGradle by the MinecraftForge Team.
