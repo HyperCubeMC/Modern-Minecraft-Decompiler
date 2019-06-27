@@ -12,7 +12,7 @@ buildscript {
 
 apply plugin: 'eclipse'
 
-group = 'modern-mcp'
+group = 'Modern-Minecraft-Decompiler'
 version = '1.0.0'
 
 project(':mcp') {
