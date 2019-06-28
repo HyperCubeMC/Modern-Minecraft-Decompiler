@@ -1,4 +1,4 @@
-rootProject.name = 'modern-mcp'
+rootProject.name = 'Modern-Minecraft-Decompiler'
 
 include ':mcp'
 project(":mcp").projectDir = file("projects/mcp")
