@@ -18,7 +18,7 @@ version = '1.0.0'
 project(':mcp') {
     apply plugin: 'net.minecraftforge.gradle.mcp'
     mcp {
-        //Copied from MinecraftForge build.gradle
+        //From MinecraftForge build.gradle
         config = '1.14.3' + '-' + '20190624.152911'
         pipeline = 'client'
     }
