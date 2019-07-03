@@ -46,7 +46,7 @@ task runclient(type: JavaExec) {
         mkdir 'runclient'
     }
     classpath sourceSets.main.runtimeClasspath
-    args = ['--accessToken', '0', '--version', '1.14', '--assetsDir', downloadAssets.output, '--assetIndex', '{asset_index}']
+    args = ['--accessToken', '0', '--version', '1.14', '--assetsDir', downloadAssets.output, '--assetIndex', '1.14']
     main 'net.minecraft.client.main.Main'
     workingDir 'runclient'
 }
