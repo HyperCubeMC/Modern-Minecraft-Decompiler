@@ -13,7 +13,7 @@
 
 | Version     | Support | Mapping |
 | ---      | ---       | ---       |
-| 1.14.3 | ✔         | Snapshot/20190625-1.14.3 |
+| 1.14.3 | ✔         | Snapshot/20190703-1.14.3 |
 
 ### Known issues (All of them have fixes ✔) :
 
