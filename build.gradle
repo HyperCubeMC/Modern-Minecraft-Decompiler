@@ -19,7 +19,7 @@ project(':mcp') {
     apply plugin: 'net.minecraftforge.gradle.mcp'
     mcp {
         //From MinecraftForge build.gradle
-        config = '1.14.3-20190624.152911'
+        config = '1.14.4-20190719.225934'
         pipeline = 'client'
     }
 }
@@ -36,8 +36,8 @@ repositories {
 patcher {
     parent = project(':mcp')
     patchedSrc = file('src/main/java')
-    mappings channel: 'snapshot', version: '20190703-1.14.3'
-    mcVersion = '1.14.3'
+    mappings channel: 'snapshot', version: '20190728-1.14.3'
+    mcVersion = '1.14.4'
 }
 task runclient(type: JavaExec) {
     group = "MCP"
