@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         mavenLocal()
-        maven { url = 'http://files.minecraftforge.net/maven' }
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
         mavenCentral()
     }
@@ -20,7 +20,7 @@ project(':mcp') {
     mcp {
         //From MinecraftForge build.gradle
         config = '1.14.4-20190719.225934'
-        pipeline = 'client'
+        pipeline = 'joined'
     }
 }
 
@@ -36,7 +36,7 @@ repositories {
 patcher {
     parent = project(':mcp')
     patchedSrc = file('src/main/java')
-    mappings channel: 'snapshot', version: '20190728-1.14.3'
+    mappings channel: 'snapshot', version: '20190719-1.14.3'
     mcVersion = '1.14.4'
 }
 task runclient(type: JavaExec) {
