@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         mavenLocal()
-        maven { url = 'http://files.minecraftforge.net/maven' }
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
         mavenCentral()
     }
@@ -29,7 +29,7 @@ apply plugin: 'eclipse'
 apply plugin: 'net.minecraftforge.gradle.patcher'
 repositories {
     mavenLocal()
-    maven { url = 'http://files.minecraftforge.net/maven' }
+    maven { url = 'https://files.minecraftforge.net/maven' }
     jcenter()
     mavenCentral()
 }
@@ -38,6 +38,12 @@ patcher {
     patchedSrc = file('src/main/java')
     mappings channel: 'snapshot', version: '20190719-1.14.3'
     mcVersion = '1.14.4'
+    repositories {
+      mavenLocal()
+      maven { url = 'https://files.minecraftforge.net/maven' }
+      jcenter()
+      mavenCentral()
+    }
 }
 task runclient(type: JavaExec) {
     group = "MCP"
