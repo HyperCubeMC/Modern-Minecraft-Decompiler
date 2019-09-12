@@ -20,7 +20,7 @@ project(':mcp') {
     mcp {
         //From MinecraftForge build.gradle
         config = '1.14.4-20190719.225934'
-        pipeline = 'joined'
+        pipeline = 'client'
     }
 }
 
