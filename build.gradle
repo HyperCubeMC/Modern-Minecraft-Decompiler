@@ -6,7 +6,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:3.0.131'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.0.143'
     }
 }
 
@@ -19,7 +19,7 @@ project(':mcp') {
     apply plugin: 'net.minecraftforge.gradle.mcp'
     mcp {
         //From MinecraftForge build.gradle
-        config = '1.14.4-20190719.225934'
+        config = '1.14.4-20190829.143755'
         pipeline = 'client'
     }
 }
@@ -36,7 +36,7 @@ repositories {
 patcher {
     parent = project(':mcp')
     patchedSrc = file('src/main/java')
-    mappings channel: 'snapshot', version: '20190719-1.14.3'
+    mappings channel: 'snapshot', version: '20190920-1.14.3'
     mcVersion = '1.14.4'
     repositories {
       mavenLocal()
