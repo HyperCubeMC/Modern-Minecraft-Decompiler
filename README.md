@@ -13,7 +13,7 @@
 
 | Version     | Support | Mapping |
 | ---      | ---       | ---       |
-| 1.14.4 | ✔         | Snapshot/20190920-1.14.3 |
+| 1.15 | ✔         | Snapshot/20190920-1.14.3 |
 
 ### Wiki
 
