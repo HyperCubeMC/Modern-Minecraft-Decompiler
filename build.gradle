@@ -19,7 +19,7 @@ project(':mcp') {
     apply plugin: 'net.minecraftforge.gradle.mcp'
     mcp {
         //From MinecraftForge build.gradle
-        config = '1.15.1-20191217.105819'
+        config = '1.15.2-20200122.131323'
         pipeline = 'client'
     }
 }
@@ -36,8 +36,8 @@ repositories {
 patcher {
     parent = project(':mcp')
     patchedSrc = file('src/main/java')
-    mappings channel: 'snapshot', version: '20190920-1.14.3'
-    mcVersion = '1.15.1'
+    mappings channel: 'snapshot', version: '20200217-1.15.1'
+    mcVersion = '1.15.2'
     repositories {
       mavenLocal()
       maven { url = 'https://files.minecraftforge.net/maven' }
@@ -52,7 +52,7 @@ task runclient(type: JavaExec) {
         mkdir 'runclient'
     }
     classpath sourceSets.main.runtimeClasspath
-    args = ['--accessToken', '0', '--version', '1.15.1', '--assetsDir', downloadAssets.output, '--assetIndex', '1.15']
+    args = ['--accessToken', '0', '--version', '1.15.2', '--assetsDir', downloadAssets.output, '--assetIndex', '1.15']
     main 'net.minecraft.client.main.Main'
     workingDir 'runclient'
 }
