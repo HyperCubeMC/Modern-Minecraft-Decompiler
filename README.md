@@ -11,9 +11,9 @@
  
 ### Supported versions:
 
-| Version     | Support | Mapping |
-| ---      | ---       | ---       |
-| 1.15.2 | ✔         | Snapshot/20200217-1.15.1 |
+| Version | Support | Mapping |
+|---------| ---       | ---       |
+| 1.18.1  | ✔         | parchment/2022.02.13-1.18.1 |
 
 ### Wiki
 
