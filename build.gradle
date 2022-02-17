@@ -1,69 +1,118 @@
 buildscript {
     repositories {
         mavenLocal()
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
         mavenCentral()
+        maven {
+            name = 'forge'
+            url = 'https://maven.minecraftforge.net/'
+        }
+        maven {
+            name = 'parchmentmc'
+            url = 'https://maven.parchmentmc.org'
+        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:+'
+        classpath 'org.parchmentmc:librarian:1.+'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:[5.1.26,)'
     }
 }
 
-apply plugin: 'eclipse'
+plugins {
+    id 'eclipse'
+}
+
+ext {
+    // If you want to use the official mappings, you should follow the format below.
+    // MAPPING_CHANNEL = 'official'
+    // MAPPING_VERSION = '1.18.1'
+    // For us, we use the parchment for parameter names.
+    // ParchmentMc Official Website: https://parchmentmc.org/
+    // Librarian Usage: https://github.com/ParchmentMC/Librarian/blob/dev/docs/FORGEGRADLE.md
+    MAPPING_CHANNEL = 'parchment'
+    MAPPING_VERSION = '2022.02.13-1.18.1'
+
+    // You can find these information in Forge(https://github.com/MinecraftForge/MinecraftForge)'s build.gradle.
+    MC_VERSION = '1.18.1'
+    MCP_VERSION = '20211210.034407'
+    SPI_VERSION = '4.0.10'
+}
 
 group = 'Modern-Minecraft-Decompiler'
 version = '1.0.0'
 
-project(':mcp') {
-    apply plugin: 'net.minecraftforge.gradle.mcp'
-    mcp {
-        //From MinecraftForge build.gradle
-        config = '1.16.3-20200911.084530'
-        pipeline = 'client'
+subprojects {
+    apply plugin: 'eclipse'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            name = 'forge'
+            url = 'https://maven.minecraftforge.net/'
+        }
+        maven {
+            name = 'parchmentmc'
+            url = 'https://maven.parchmentmc.org'
+        }
     }
 }
 
-evaluationDependsOn(':mcp')
-apply plugin: 'eclipse'
-apply plugin: 'net.minecraftforge.gradle.patcher'
-repositories {
-    mavenLocal()
-    maven { url = 'https://files.minecraftforge.net/maven' }
-    jcenter()
-    mavenCentral()
-}
-patcher {
-    parent = project(':mcp')
-    patchedSrc = file('src/main/java')
-    mappings channel: 'snapshot', version: '20200916-1.16.2'
-    mcVersion = '1.16.3'
-    repositories {
-      mavenLocal()
-      maven { url = 'https://files.minecraftforge.net/maven' }
-      jcenter()
-      mavenCentral()
+project(':mcp') {
+    apply plugin: 'net.minecraftforge.gradle.mcp'
+    tasks.withType(AbstractPublishToMaven.class).forEach{tsk -> tsk.enabled = false } // We don't want to publish anything
+    mcp {
+        config MC_VERSION + '-' + MCP_VERSION
+        pipeline = 'joined'
     }
 }
-task runclient(type: JavaExec) {
-    group = "MCP"
-    description = "Runs the client"
-    doFirst {
-        mkdir 'runclient'
+
+project(':clean') {
+    evaluationDependsOn(':mcp')
+    apply plugin: 'net.minecraftforge.gradle.patcher'
+    apply plugin: 'org.parchmentmc.librarian.forgegradle'
+    tasks.withType(AbstractPublishToMaven.class).forEach{tsk -> tsk.enabled = false } // We don't want to publish anything
+
+    dependencies {
+        implementation 'net.minecraftforge:forgespi:' + SPI_VERSION
     }
-    classpath sourceSets.main.runtimeClasspath
-    args = ['--accessToken', '0', '--version', '1.16.3', '--assetsDir', downloadAssets.output, '--assetIndex', '1.16']
-    main 'net.minecraft.client.main.Main'
-    workingDir 'runclient'
+
+    patcher {
+        parent = project(':mcp')
+        mcVersion = MC_VERSION
+        patchedSrc = file('src/main/java')
+
+        mappings channel: MAPPING_CHANNEL, version: MAPPING_VERSION
+
+        runs {
+            clean_client {
+                client true
+                taskName 'clean_client'
+                ideaModule "${rootProject.name}.${project.name}.main"
+
+                main 'net.minecraft.client.main.Main'
+                workingDirectory project.file('run')
+
+                args '--gameDir', '.'
+                args '--version', MC_VERSION
+                args '--assetsDir', downloadAssets.output
+                args '--assetIndex', '{asset_index}'
+                args '--accessToken', '0'
+            }
+
+            clean_server {
+                client false
+                taskName 'clean_server'
+                ideaModule "${rootProject.name}.${project.name}.main"
+
+                main 'net.minecraft.server.Main'
+                workingDirectory project.file('run')
+            }
+        }
+    }
 }
 
 task setup() {
-    group = "MCP"
+    group = "setup"
     description = "Setups the dev workspace"
-    dependsOn ':extractMapped'
-    mkdir 'run/assets'
-    copy {
-        from downloadAssets.output.path
-        into 'run/assets'
-    }
+    dependsOn ':clean:extractMapped'
 }
