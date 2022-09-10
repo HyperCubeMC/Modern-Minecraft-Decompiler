@@ -13,7 +13,7 @@ buildscript {
     }
     dependencies {
         classpath 'org.parchmentmc:librarian:1.+'
-        classpath 'net.minecraftforge.gradle:ForgeGradle:[5.1.26,)'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:[5.1.56,)'
     }
 }
 
@@ -24,17 +24,17 @@ plugins {
 ext {
     // If you want to use the official mappings, you should follow the format below.
     // MAPPING_CHANNEL = 'official'
-    // MAPPING_VERSION = '1.18.1'
+    // MAPPING_VERSION = '1.19.2'
     // For us, we use the parchment for parameter names.
     // ParchmentMc Official Website: https://parchmentmc.org/
     // Librarian Usage: https://github.com/ParchmentMC/Librarian/blob/dev/docs/FORGEGRADLE.md
     MAPPING_CHANNEL = 'parchment'
-    MAPPING_VERSION = '2022.02.13-1.18.1'
+    MAPPING_VERSION = '2022.09.04-1.19.2'
 
     // You can find these information in Forge(https://github.com/MinecraftForge/MinecraftForge)'s build.gradle.
-    MC_VERSION = '1.18.1'
-    MCP_VERSION = '20211210.034407'
-    SPI_VERSION = '4.0.10'
+    MC_VERSION = '1.19.2'
+    MCP_VERSION = '20220805.130853'
+    SPI_VERSION = '6.0.0'
 }
 
 group = 'Modern-Minecraft-Decompiler'
